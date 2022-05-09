@@ -132,37 +132,371 @@ const eng = [
   "Ctrl",
 ];
 
-function init() {
-  const textarea = document.createElement("textarea");
-  const keyboard = document.createElement("div");
+const ru = [
+  "ё",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "BackSpace",
+  "Tab",
+  "й",
+  "ц",
+  "у",
+  "к",
+  "е",
+  "н",
+  "г",
+  "ш",
+  "щ",
+  "з",
+  "х",
+  "ъ",
+  "\\",
+  "Del",
+  "CapsLock",
+  "ф",
+  "ы",
+  "в",
+  "а",
+  "п",
+  "р",
+  "о",
+  "л",
+  "д",
+  "ж",
+  "э",
+  "Enter",
+  "Shift",
+  "я",
+  "ч",
+  "с",
+  "м",
+  "и",
+  "т",
+  "ь",
+  "б",
+  "ю",
+  ".",
+  "↑",
+  "Shift",
+  "Ctrl",
+  "Win",
+  "Alt",
+  "",
+  "Alt",
+  "←",
+  "↓",
+  "→",
+  "Ctrl",
+];
 
-  textarea.classList.add("text-area");
-  keyboard.classList.add("keyboard");
+const engShift = [
+  "~",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "_",
+  "+",
+  "BackSpace",
+  "Tab",
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "{",
+  "}",
+  "|",
+  "Del",
+  "CapsLock",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  ":",
+  '"',
+  "Enter",
+  "Shift",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+  "<",
+  ">",
+  "?",
+  "↑",
+  "Shift",
+  "Ctrl",
+  "Win",
+  "Alt",
+  "",
+  "Alt",
+  "←",
+  "↓",
+  "→",
+  "Ctrl",
+];
 
-  document.body.appendChild(textarea);
-  document.body.appendChild(keyboard);
-  createKeys(keyboard);
-}
+const ruShift = [
+  "Ё",
+  "!",
+  '"',
+  "№",
+  ";",
+  "%",
+  ":",
+  "?",
+  "*",
+  "(",
+  ")",
+  "_",
+  "+",
+  "BackSpace",
+  "Tab",
+  "Й",
+  "Ц",
+  "У",
+  "К",
+  "Е",
+  "Н",
+  "Г",
+  "Ш",
+  "Щ",
+  "З",
+  "Х",
+  "Ъ",
+  "/",
+  "Del",
+  "CapsLock",
+  "Ф",
+  "Ы",
+  "В",
+  "А",
+  "П",
+  "Р",
+  "О",
+  "Л",
+  "Д",
+  "Ж",
+  "Э",
+  "Enter",
+  "Shift",
+  "Я",
+  "Ч",
+  "С",
+  "М",
+  "И",
+  "Т",
+  "Ь",
+  "Б",
+  "Ю",
+  ",",
+  "↑",
+  "Shift",
+  "Ctrl",
+  "Win",
+  "Alt",
+  "",
+  "Alt",
+  "←",
+  "↓",
+  "→",
+  "Ctrl",
+];
 
-class Key {
-  constructor(param) {
-    this.code = param.code;
-    this.eng = param.eng;
-  }
-}
+const engCaps = [
+  "`",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "BackSpace",
+  "Tab",
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "[",
+  "]",
+  "\\",
+  "Del",
+  "CapsLock",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  ";",
+  "'",
+  "Enter",
+  "Shift",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+  ",",
+  ".",
+  "/",
+  "↑",
+  "Shift",
+  "Ctrl",
+  "Win",
+  "Alt",
+  "",
+  "Alt",
+  "←",
+  "↓",
+  "→",
+  "Ctrl",
+];
 
-const keys = [];
-codes.map((item, i) => {
-  keys[codes[i]] = new Key({
-    code: codes[i],
-    eng: eng[i],
-  });
-});
+const ruCaps = [
+  "Ё",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "-",
+  "=",
+  "BackSpace",
+  "Tab",
+  "Й",
+  "Ц",
+  "У",
+  "К",
+  "Е",
+  "Н",
+  "Г",
+  "Ш",
+  "Щ",
+  "З",
+  "Х",
+  "Ъ",
+  "\\",
+  "Del",
+  "CapsLock",
+  "Ф",
+  "Ы",
+  "В",
+  "А",
+  "П",
+  "Р",
+  "О",
+  "Л",
+  "Д",
+  "Ж",
+  "Э",
+  "Enter",
+  "Shift",
+  "Я",
+  "Ч",
+  "С",
+  "М",
+  "И",
+  "Т",
+  "Ь",
+  "Б",
+  "Ю",
+  ".",
+  "↑",
+  "Shift",
+  "Ctrl",
+  "Win",
+  "Alt",
+  "",
+  "Alt",
+  "←",
+  "↓",
+  "→",
+  "Ctrl",
+];
 
-function createKeys(parent) {
+const textarea = document.createElement("textarea");
+const keyboard = document.createElement("div");
+
+textarea.classList.add("text-area");
+keyboard.classList.add("keyboard");
+
+document.body.appendChild(textarea);
+document.body.appendChild(keyboard);
+
+// class Key {
+//   constructor(param) {
+//     this.code = param.code;
+//     this.eng = param.eng;
+//   }
+// }
+
+// const keys = [];
+// codes.map((item, i) => {
+//   keys[codes[i]] = new Key({
+//     code: codes[i],
+//     eng: eng[i],
+//   });
+// });
+
+function createKeys(chars) {
+  document.body.querySelector(".keyboard").innerHTML = "";
   for (let i = 0; i < codes.length; i++) {
     const keyElement = document.createElement("button");
     keyElement.setAttribute("type", "button");
+    keyElement.setAttribute("data", `${codes[i]}`);
     if (
       codes[i] == "Backspace" ||
       codes[i] == "CapsLock" ||
@@ -176,9 +510,87 @@ function createKeys(parent) {
     codes[i] == "Space"
       ? keyElement.classList.add("keyboard__key--extra-wide", "keyboard__key")
       : keyElement.classList.add("keyboard__key");
-    keyElement.textContent = keys[codes[i]].eng;
-    parent.appendChild(keyElement);
+    keyElement.textContent = chars[i];
+    document.body.querySelector(".keyboard").appendChild(keyElement);
   }
 }
 
-window.addEventListener("DOMContentLoaded", init());
+createKeys(eng);
+
+let isCapsActive = false;
+let ruLang = false;
+
+document.addEventListener("keydown", (event) => {
+  // event.preventDefault();
+  const btn = selectButton(event.code);
+  if (event.code == "ShiftLeft" || event.code == "ShiftRight") {
+    !ruLang ? createKeys(engShift) : createKeys(ruShift);
+  }
+  if (event.code == "CapsLock") {
+    if (isCapsActive) {
+      !ruLang ? createKeys(eng) : createKeys(ru);
+    } else {
+      !ruLang ? createKeys(engCaps) : createKeys(ruCaps);
+    }
+    isCapsActive = !isCapsActive;
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  // event.preventDefault();
+  const btn = document.querySelector(`button[data=${event.code}]`);
+  btn.classList.remove("active");
+  if (event.code == "ShiftLeft" || event.code == "ShiftRight") {
+    !ruLang ? createKeys(eng) : createKeys(ru);
+  }
+});
+
+function changeLang(func, ...codes) {
+  let pressedBtns = new Set();
+  document.addEventListener("keydown", (event) => {
+    pressedBtns.add(event.code);
+    for (let code of codes) {
+      if (!pressedBtns.has(code)) return;
+    }
+    pressedBtns.clear();
+    func();
+  });
+  document.addEventListener("keyup", (event) => pressedBtns.delete(event.code));
+}
+
+document.addEventListener("mousedown", function (event) {
+  // const nonSymbols = ["ShiftLeft", "Tab", "ArrowUp", "CapsLock", "ShiftRight", "ControlLeft", "MetaLeft", "AltLeft", "AltRight", 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight'].indexOf(event.code) == -1;
+
+  if (event.target.classList.contains("keyboard__key")) {
+    let code = event.target.getAttribute("data");
+    textarea.textContent += event.target.textContent;
+  }
+});
+
+function toggleLang() {
+  if (isCapsActive) {
+    if (ruLang) {
+      createKeys(engCaps);
+      ruLang = false;
+    } else {
+      createKeys(ruCaps);
+      ruLang = true;
+    }
+  } else {
+    if (ruLang) {
+      createKeys(eng);
+      ruLang = false;
+    } else {
+      createKeys(ru);
+      ruLang = true;
+    }
+  }
+}
+
+changeLang(toggleLang, "ControlLeft", "AltLeft");
+
+function selectButton(code) {
+  const btn = document.querySelector(`button[data=${code}]`);
+  btn.classList.add("active");
+  return btn;
+}
